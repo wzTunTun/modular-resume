@@ -1,15 +1,14 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import 'uno.css'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Home from './pages/home/home'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <div className='z-10 p-c'></div>
-      <div className='f-c'></div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Home/>}></Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

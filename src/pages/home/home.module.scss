@@ -1,0 +1,45 @@
+.nav {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 3rem;
+    background-color: rgba(250, 250, 250, 0.5);
+    backdrop-filter: blur(50px);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.bg {
+    // position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #FF5B00;
+}
+
+.lgBtn{
+    margin: 0 10px 0 10px;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgba(250, 250, 250, 0);
+    border-radius: 0.5rem;
+}
+
+.rgBtn{
+    margin: 0 10px 0 10px;
+    background-color: #FF5B00;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
