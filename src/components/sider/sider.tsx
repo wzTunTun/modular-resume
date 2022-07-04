@@ -7,34 +7,34 @@ function Sider() {
     const leftbox = useRef<HTMLDivElement>(null)
 
     const ocSider = () => {
-        if(oc){
+        if (oc) {
             leftbox.current!.style.width = '0'
             setoc(false)
-        }else{
-            leftbox.current!.style.width = '250px'
+        } else {
+            leftbox.current!.style.width = '15rem'
             setoc(true)
         }
     }
     return (
         <div className={style.container}>
-        <div ref={leftbox}  className={style.leftbox}>
-            <ul>
-                <li>
-                    样式1
-                </li>
-                <li>
-                    样式2
-                </li>
-                <li>
-                    样式3
-                </li>
-            </ul>
-        </div>
-        <div className={style.rightbox}>
+            <div ref={leftbox} className={style.leftbox}>
+                <ul>
+                    <li>
+                        样式1
+                    </li>
+                    <li>
+                        样式2
+                    </li>
+                    <li>
+                        样式3
+                    </li>
+                </ul>
+            </div>
+            <div className={style.rightbox}>
             <div className={style.handler} onClick={ocSider}></div>
+            </div>
         </div>
-    </div>
-      )
+    )
 }
 
 export default Sider

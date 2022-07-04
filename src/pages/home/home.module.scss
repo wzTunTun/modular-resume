@@ -3,12 +3,13 @@
     top: 0;
     width: 100vw;
     height: 3rem;
-    background-color: rgba(250, 250, 250, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(50px);
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+    // z-index: 10;
 }
 
 .bg {
@@ -19,27 +20,27 @@
 }
 
 .lgBtn{
-    margin: 0 10px 0 10px;
+    margin: 0 0.5rem 0 0.5rem;
     border: none;
     color: white;
-    padding: 10px 20px;
+    padding: 0.5rem 1rem;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     cursor: pointer;
     background-color: rgba(250, 250, 250, 0);
-    border-radius: 0.5rem;
+    border-radius: 1rem;
 }
 
 .rgBtn{
-    margin: 0 10px 0 10px;
+    margin: 0 0.5rem 0 0.5rem;
     background-color: #FF5B00;
     border: none;
     color: white;
-    padding: 10px 20px;
+    padding: 0.5rem 1rem;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
 }

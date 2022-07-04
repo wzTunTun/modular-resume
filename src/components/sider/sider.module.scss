@@ -17,6 +17,7 @@ body{
     height: 100%;
     /* 弹性布局 水平排列 */
     display: flex;
+    z-index: 99;
 }
 /* 字体图标 */
 .icon{
@@ -25,8 +26,8 @@ body{
 }
 /* 左侧导航栏 */
 .leftbox{
-    width: 250px;
-    height: 100%;
+    width: 15rem;
+    height: 100vh;
     top: 3rem;
     /* 半透明背景 */
     background-color: rgba(0,0,0,0.15);
@@ -46,18 +47,18 @@ body{
 }
 .leftbox ul{
     list-style: none;
-    width: 90%;
-    margin: 25px auto;
+    width: 15rem;
+    margin: 1.5rem auto;
     /* 高度铺满 */
     flex: 1;
 }
 .leftbox li{
-    height: 46px;
+    height: 3rem;
     /* 弹性布局 垂直居中 */
     display: flex;
     align-items: center;
-    padding-left: 12px;
-    border-radius: 10px;
+    padding: 0 1rem 0 1rem;
+    border-radius: 1rem;
     cursor: pointer;
     /* 过渡 */
     transition: 0.3s;
@@ -71,31 +72,31 @@ body{
     background-color: rgba(255,255,255,0.1);
 }
 .leftbox hr{
-    width: 90%;
-    margin: 18px auto;
+    width: 90vw;
+    margin: 1rem auto;
     border: none;
-    border-top: 1px solid rgba(255,255,255,0.2);
+    border-top: 0.1rem solid rgba(255,255,255,0.2);
 }
 .leftbox .icon{
-    margin-right: 16px;
+    margin-right: 1rem;
 }
 /* 用户信息区域 */
 
 /* 右侧区域 */
 .rightbox{
-    background-color: #0f0f11;
+    background-color: #FF5B00;
     flex: 1;
     position: relative;
     display: flex;
     flex-direction: column;
 }
 /* 展开收起开关 */
-.rightbox .handler{
-    width: 10px;
-    height: 50px;
+.handler{
+    width: 0.5rem;
+    height: 8rem;
     /* 绝对定位 垂直居中 */
     position: absolute;
-    left: 10px;
+    left: 0.7rem;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
@@ -126,14 +127,14 @@ body{
     opacity: 1;
 }
 .rightbox .handler:hover::before{
-    transform: skewX(-15deg);
+    transform: skewX(-5deg);
 }
 .rightbox .handler:hover::after{
-    transform: skewX(15deg);
+    transform: skewX(5deg);
 }
 .rightbox .handler.close:hover::before{
-    transform: skewX(15deg);
+    transform: skewX(5deg);
 }
 .rightbox .handler.close:hover::after{
-    transform: skewX(-15deg);
+    transform: skewX(-5deg);
 }
