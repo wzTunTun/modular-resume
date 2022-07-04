@@ -14,7 +14,7 @@ function Home() {
             <button className={style.rgBtn}>注册</button>
           </div>
         </div>
-         <Login></Login>
+         {/* <Login></Login> */}
       </div>
         
       )

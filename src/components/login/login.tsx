@@ -54,7 +54,7 @@ function Login() {
     // }
     const signUp = () => {
         console.log(dowebok.current?.className)
-        dowebok.current!.className = {`style.dowebok style.rightpanelactive`}
+        // dowebok.current!.className = {`style.dowebok style.rightpanelactive`}
     }
 
     return (
