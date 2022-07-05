@@ -1,9 +1,24 @@
 import style from './login.module.scss'
-import classNames from 'classnames'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import PubSub from 'pubsub.js'
+import '../../media/icon/iconfont.css'
 
 function Login() {
     const dowebok = useRef<HTMLDivElement>(null)
+    const [lore, setlore] = useState<boolean>(true)
+    const [login, setlogin] = useState<boolean>(true)
+
+    // 弹出登录框
+    // const dislore = (msg, data) => {
+    //     // if(data) setlore(true)
+    //     console.log(msg, data)
+    // }
+
+    const subLoRe = () => {
+        PubSub.subscribe('iflogin',(msg: string, data: boolean) => {
+            console.log(111)	
+          })
+    }
     //  //onblur失去焦点事件，用户离开输入框时执行 JavaScript 代码：
     // //身份证号格式
     // function validate_idcard(idcard) {
@@ -52,14 +67,24 @@ function Login() {
     //         // console.log("密码由数字和字母组成!");
     //     }
     // }
-    const signUp = () => {
-        console.log(dowebok.current?.className)
-        // dowebok.current!.className = {`style.dowebok style.rightpanelactive`}
+    const LoRe = () => {
+        setlore(!lore)
     }
 
+    const Login = () => {
+        setlogin(false)
+    }
+
+    useEffect(() => {
+        subLoRe()
+    }, [])
+
     return (
-        <div className={style.container}>
-            <div className={style.dowebok} ref={dowebok} id="dowebok">
+        <div className={login ? style.container : `${style.container_hide} ${style.container}`}>
+            <div className={style.closebtn} onClick={Login}>
+                <span className="iconfont icon-shanchu"></span>
+            </div>
+            <div className={lore ? style.dowebok : `${style.dowebok} ${style.rightpanelactive}`} ref={dowebok} id="dowebok">
                 <div className={[style.formcontainer, style.signupcontainer].join(' ')}>
                     <form>
                         <h1>注册</h1>
@@ -72,7 +97,7 @@ function Login() {
                         />
                         <input type="password" id="Password2" name="password2"
                             placeholder="确认密码" />
-                        <button>注册</button>
+                        <button type='button'>注册</button>
                     </form>
                 </div>
                 <div className={[style.formcontainer, style.signincontainer].join(' ')}>
@@ -83,7 +108,7 @@ function Login() {
                         <input type="text" placeholder="姓名" />
                         <input type="password" placeholder="密码" />
                         <a href="###">忘记密码？</a>
-                        <button>登录</button>
+                        <button type='button' onClick={Login}>登录</button>
                     </form>
                 </div>
                 <div className={style.overlaycontainer}>
@@ -91,12 +116,12 @@ function Login() {
                         <div className={[style.overlaypanel, style.overlayleft].join(' ')}>
                             <h1>已有帐号？</h1>
                             <p>请使用您的帐号进行登录</p>
-                            <button className={style.ghost} id="signIn" onClick={signUp}>登录</button>
+                            <button className={style.ghost} id="signIn" onClick={LoRe}>登录</button>
                         </div>
                         <div className={[style.overlaypanel, style.overlayright].join(' ')}>
                             <h1>没有帐号？</h1>
                             <p>立即注册加入我们，和我们一起开始旅程吧</p>
-                            <button className={style.ghost} id="signUp" onClick={signUp}>注册</button>
+                            <button className={style.ghost} id="signUp" onClick={LoRe}>注册</button>
                         </div>
                     </div>
                 </div>
