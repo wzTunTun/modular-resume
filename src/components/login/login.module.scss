@@ -43,7 +43,7 @@ a {
     background-color: rgba(0, 0, 0, 0.5);
     top: 0;
     left: 0;
-    z-index: 99999;
+    z-index: 150;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,7 +76,7 @@ a {
     align-items: center;
     transform: translate(23.5rem, -14.5rem);
     cursor: pointer;
-    z-index: 999;
+    z-index: 200;
 }
 
 .formcontainer form {

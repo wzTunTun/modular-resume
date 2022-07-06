@@ -1,12 +1,12 @@
 import style from './login.module.scss'
 import { useRef, useState, useEffect } from 'react'
-import PubSub from 'pubsub.js'
+import PubSub from 'pubsub-js'
 import '../../media/icon/iconfont.css'
 
 function Login() {
     const dowebok = useRef<HTMLDivElement>(null)
     const [lore, setlore] = useState<boolean>(true)
-    const [login, setlogin] = useState<boolean>(true)
+    const [login, setlogin] = useState<boolean>(false)
 
     // 弹出登录框
     // const dislore = (msg, data) => {
@@ -15,10 +15,16 @@ function Login() {
     // }
 
     const subLoRe = () => {
-        PubSub.subscribe('iflogin',(msg: string, data: boolean) => {
-            console.log(111)	
-          })
+        PubSub.subscribe('iflogin', (msg: string, data: boolean) => {
+            setlore(true)
+            setlogin(true)
+        })
+        PubSub.subscribe('ifreges', (msg: string, data: boolean) => {
+            setlore(false)
+            setlogin(true)
+        })
     }
+
     //  //onblur失去焦点事件，用户离开输入框时执行 JavaScript 代码：
     // //身份证号格式
     // function validate_idcard(idcard) {

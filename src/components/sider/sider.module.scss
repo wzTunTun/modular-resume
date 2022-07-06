@@ -28,7 +28,7 @@ body{
 .leftbox{
     width: 15rem;
     height: 100vh;
-    top: 3rem;
+    // top: 3rem;
     /* 半透明背景 */
     background-color: rgba(0,0,0,0.15);
     /* 背景模糊（毛玻璃） */
@@ -90,10 +90,14 @@ body{
 /* 右侧区域 */
 .rightbox{
     background-color: #FF5B00;
-    flex: 1;
+    // flex: 1;
+    // flex-grow: 2;
+    // flex-shrink: 1;
     position: relative;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    width: 100%;
+    height: calc(100vh - 3rem);
+
 }
 /* 展开收起开关 */
 .handler{
@@ -104,7 +108,7 @@ body{
     left: 0.7rem;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1;
+    z-index: 999;
     /* 光标变小手 */
     cursor: pointer;
     /* 默认不透明度为0 */
@@ -115,7 +119,7 @@ body{
 .rightbox .handler::before,
 .rightbox .handler::after{
     content: "";
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     left: 0;
     width: 100%;

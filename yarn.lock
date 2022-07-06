@@ -294,6 +294,11 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
+"@types/pubsub-js@^1.8.3":
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/@types/pubsub-js/-/pubsub-js-1.8.3.tgz#f480a9e4f72f50e1e3cc598ef1b32f3bfbbcd6b6"
+  integrity sha512-6BqY04dh2UV1dNV690tyJVJYQ0U6qBH4tU+FCwY1Mhl8jOPOP9qiIvgLnB59cVik/E6/R002oXZpGiDm+2C8eA==
+
 "@types/react-dom@^18.0.0":
   version "18.0.5"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.0.5.tgz"
@@ -731,11 +736,6 @@ postcss@^8.4.13:
     nanoid "^3.3.4"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
-
-pubsub.js@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/pubsub.js/-/pubsub.js-1.5.2.tgz#f7a6c5e12cabe5b48b24326e2e2d6cd6542f0a4b"
-  integrity sha512-HG0TJgEuJz4DoGj5o8ksKYtGDd2T7p1oh2Q1eVJwxkgxsddYPMoL7LijUYg0l9G3fI/pU5MKZ6MT599Pz90fYQ==
 
 react-dom@^18.0.0:
   version "18.2.0"

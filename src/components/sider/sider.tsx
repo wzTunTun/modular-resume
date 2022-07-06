@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import style from './sider.module.scss'
+import Resume from '../../components/resume/resume'
 
 function Sider() {
     // 保存工具栏开关状态
@@ -20,8 +21,10 @@ function Sider() {
                     </li>
                 </ul>
             </div>
+             
             <div className={style.rightbox}>
-            <div className={style.handler} onClick={() => setoc(!oc)}></div>
+               <div className={style.handler} onClick={() => setoc(!oc)}></div>
+                <Resume></Resume>
             </div>
         </div>
     )
