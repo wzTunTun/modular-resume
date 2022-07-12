@@ -8,9 +8,10 @@ function Resume() {
 
 
     useEffect(() => {
-        console.log(tar)
+        // console.log(DataTransfer)
         document.addEventListener("drag", function (event) { }, false)
         document.addEventListener("dragstart", function (event: any) {
+            event.dataTransfer.setData("text/plain", event.target.id)
             // 保存拖动元素的引用 (ref.)
             console.log('开始拖动')
             dragged = event.target;
@@ -63,12 +64,12 @@ function Resume() {
 
     return (
         <div className={style.container}>
-            <div className={style.paper}>
-                <div className={style.box} draggable="true"></div>
-            </div>
             <div className={style.paper} id='tar'>
                 {/* <div className={style.box} draggable="true"></div> */}
             </div>
+            {/* <div className={style.paper} id='tar'>
+                <div className={style.box} draggable="true"></div>
+            </div> */}
         </div>
 
     )

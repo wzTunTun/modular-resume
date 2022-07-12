@@ -20,10 +20,10 @@ body{
     z-index: 99;
 }
 /* 字体图标 */
-.icon{
-    color: #fff;
-    font-size: 24px;
-}
+// .icon{
+//     color: #fff;
+//     font-size: 24px;
+// }
 /* 左侧导航栏 */
 .leftbox{
     width: 15rem;
@@ -35,8 +35,8 @@ body{
     backdrop-filter: blur(30px);
     /* 相对定位 */
     position: relative;
-    color: #fff;
-    font-size: 14px;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
     /* 弹性布局 垂直排列 */
     display: flex;
     flex-direction: column;
@@ -58,7 +58,7 @@ body{
     flex: 1;
 }
 .leftbox li{
-    height: 3rem;
+    height: auto;
     /* 弹性布局 垂直居中 */
     display: flex;
     align-items: center;
@@ -146,4 +146,32 @@ body{
 }
 .rightbox .handler.close:hover::after{
     transform: skewX(-5deg);
+}
+
+.con{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    // z-index: 800;
+    overflow: auto;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    // padding: 20px;
+}
+
+.paper{
+    margin: 20px auto;
+    width:787.5px;
+    height: 1113.75px;
+    background: radial-gradient(#08affc, #00ff80);;
+    z-index: 9;
+    // flex-shrink: 2;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: white;
 }
