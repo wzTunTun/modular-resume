@@ -167,11 +167,12 @@ body{
     height: 1113.75px;
     background: radial-gradient(#08affc, #00ff80);;
     z-index: 9;
+    position: relative;
     // flex-shrink: 2;
 }
 
 .box{
-    width: 100px;
-    height: 100px;
-    background-color: white;
+    width: auto;
+    height: auto;
+    overflow: hidden;
 }

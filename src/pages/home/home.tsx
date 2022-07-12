@@ -3,7 +3,7 @@ import Login from '../../components/login/login'
 import style from './home.module.scss'
 import PubSub from 'pubsub-js'
 import { useEffect, useState } from 'react'
-import Resume from '../../components/resume/resume'
+import Resume from '../../components/basicinfo/basicinfo'
 
 function Home() {
   const [h_login, seth_login] = useState(false)

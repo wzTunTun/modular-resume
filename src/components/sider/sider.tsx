@@ -1,11 +1,31 @@
 import { useRef, useState, useEffect } from 'react'
 import style from './sider.module.scss'
-import Resume from '../../components/resume/resume'
+import Basicinfo from '../basicinfo/basicinfo'
+import Proex from '../proex/proex'
+import Interex from '../interex/interex'
 
 function Sider() {
+    let i = 0
+    let newshoitems: any = []
     // 保存工具栏开关状态
     const [oc, setoc] = useState<boolean>(true)
+    const [shoitems, setshoitems] = useState<any>(newshoitems)
+    const [selitems, setselitems] = useState([{
+        id:1,
+        ob:<Basicinfo></Basicinfo>
+    },{
+        id:2,
+        ob:<Proex></Proex>
+    },{
+        id:3,
+        ob:<Interex></Interex>
+    }])
     let dragged: any
+
+    // 组件查找
+    const findid = (itemid: number) => {
+        return itemid
+    }
 
     useEffect(() => {
         // console.log(DataTransfer)
@@ -14,6 +34,7 @@ function Sider() {
             event.dataTransfer.setData("text/plain", event.target.id)
             // 保存拖动元素的引用 (ref.)
             console.log('开始拖动')
+            console.log(shoitems)
             dragged = event.target;
             // 使其半透明
             event.target.style.opacity = .5;
@@ -55,12 +76,19 @@ function Sider() {
             // 将拖动的元素到所选择的放置目标节点中
             if (event.target.id == "tar") {
                 event.target.style.background = "";
-                dragged.parentNode.removeChild(dragged);
-                event.target.appendChild(dragged);
+                // event.target.appendChild(basinf);
+                // console.log(dragged.id === 1)
+                const gol: any = selitems.find(item => item.id === findid(Number(dragged.id)))
+                newshoitems = [...newshoitems, gol.ob]
+                console.log("newshowitems:", newshoitems)
+                console.log("showitems:", shoitems)
+                setshoitems(newshoitems)
+                // const newshoitems2: any = [...shoitems, gol?.ob]
+                // setshoitems(newshoitems2)
                 const data = event.dataTransfer.getData('text');
-                console.log(data)
+                // console.log(data)
+                // console.log(shoitems)
             }
-
         }, false);
     }, [])
 
@@ -69,13 +97,13 @@ function Sider() {
             <div className={oc ? style.leftbox : `${style.leftbox} ${style.leftbox_close}`}>
                 <ul>
                     <li>
-                        <div className={style.box} draggable="true" id='abc'>111</div>
+                        <div draggable="true" id='1'>基本信息</div>
                     </li>
                     <li>
-                        <div className={style.box} draggable="true">2</div>
+                        <div draggable="true" id='2'>项目经历</div>
                     </li>
                     <li>
-                        <div className={style.box} draggable="true">3</div>
+                        <div draggable="true" id='3'>实习经历</div>
                     </li>
                 </ul>
             </div>
@@ -84,7 +112,10 @@ function Sider() {
                 <div className={style.handler} onClick={() => setoc(!oc)}></div>
                 <div className={style.con}>
                     <div className={style.paper} id='tar'>
-                        {/* <div className={style.box} draggable="true"></div> */}
+                        {shoitems.map((item) => {
+                            i++
+                            return <div key={i} className={style.box}>{item}</div>
+                        })}
                     </div>
                     {/* <div className={style.paper} id='tar'>
                 <div className={style.box} draggable="true"></div>
