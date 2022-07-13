@@ -3,12 +3,10 @@ import style from './sider.module.scss'
 import Basicinfo from '../basicinfo/basicinfo'
 import Proex from '../proex/proex'
 import Interex from '../interex/interex'
-import html2canvas from 'html2canvas'
-import jsPDF from 'jspdf'
+import getpdf from '../../utils/type/getpdf'
 
 function Sider() {
-    let i = 0, j = 0
-    let newshoitems: any = [1,221,1]
+    let newshoitems: any = []
     let newediitems: any = []
     // 保存工具栏开关状态
     const [oc, setoc] = useState<boolean>(true)
@@ -37,9 +35,10 @@ function Sider() {
         return itemid
     }
 
-    // 编辑框展示编辑内容
-    const showedit = () => {
-        console.log(1111)
+    const getinputs = () => {
+        console.log(1213)
+        let inputs = document.querySelectorAll('input')
+        console.log(inputs)
     }
 
     // let canvas = document.createElement("canvas");
@@ -68,19 +67,15 @@ function Sider() {
 
     useEffect(() => {
         PubSub.subscribe('basic', (msg, data: boolean) => {
-            console.log('11',data)
             newediitems = data
-            console.log(newediitems)
             setediitems(newediitems)
         })
-
         document.addEventListener("drag", function (event) { }, false)
         document.addEventListener("dragstart", function (event: any) {
             event.dataTransfer.setData("text/plain", event.target.id)
             // 保存拖动元素的引用 (ref.)
             console.log('开始拖动')
             dragged = event.target;
-            console.log(dragged)
             // 使其半透明
             event.target.style.opacity = .5;
         }, false);
@@ -161,22 +156,31 @@ function Sider() {
             </div>
             <div className={style.rightcon}>
                 <div className={!oc2 ? style.rightbox : `${style.rightbox} ${style.rightbox_close}`}>
+                    <button></button>
                     <div className={style.handler} onClick={() => setoc(!oc)}></div>
                     <div className={oc2 ? style.con : `${style.con} ${style.con_open}`}>
                         {/* <button onClick={download}></button> */}
                         <div className={style.paper} id='tar' ref={tar}>
-                            {shoitems.map((item) => {
-                                i++
-                                return <div draggable="true" key={i} className={style.box}>{item}</div>
+                            {shoitems.map((item, index) => {
+                                return <div draggable="true" key={index} className={style.box}>{item}</div>
                             })}
                         </div>
                     </div>
                     <div className={style.handler2} onClick={() => setoc2(!oc2)}></div>
                 </div>
-                <div className={oc2 ? style.downbox : `${style.downbox} ${style.downbox_close}`} onClick={() => console.log(ediitems)}>
-                    {ediitems.map((item) => {
-                        j++
-                        return item
+                <div className={oc2 ? style.downbox : `${style.downbox} ${style.downbox_close}`} >
+                    {ediitems.map((item, index) => {
+                        let html = item.outerHTML;
+                        console.log('o', html)
+                        html = html.replace('div', 'input')
+                        html = html.replace('div', 'input')
+                        console.log('1', html)
+                        if (html.indexOf("input") == 1) {
+                            console.log('yes')
+                            html = html.slice(0, 6) + ` onInput={PubSub.publish('${index}',event.data)}` + html.slice(6);
+                        }
+                        console.log('2', html)
+                        return <div key={index} dangerouslySetInnerHTML={{ __html: html }} />
                     })}
                 </div>
             </div>

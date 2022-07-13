@@ -13,7 +13,7 @@ function Proex() {
 
         <div id='1'>
             <label htmlFor="proex">项目经历：</label>
-            <input type="text" name='proex'/>
+            <div id='2'/>
         </div>
     )
 }
