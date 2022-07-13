@@ -13,15 +13,11 @@ function Home() {
   const pubLo = () => {
     seth_login(true)
     PubSub.publish('iflogin', h_login)
-
-    // pubsub.publish('ifreges', reges)
   }
   // 发布注册按钮点击状态
   const pubRe = () => {
     seth_reges(true)
     PubSub.publish('ifreges', h_reges)
-
-    // pubsub.publish('ifreges', reges)
   }
 
   useEffect(() => {
@@ -33,6 +29,7 @@ function Home() {
       <div className={style.bg}>
 
         <div className={style.nav}>
+          <button className={style.dcbtn} onClick={pubRe}>导出</button>
           <button className={style.lgBtn} onClick={pubLo}>登录</button>
           <button className={style.rgBtn} onClick={pubRe}>注册</button>
         </div>
