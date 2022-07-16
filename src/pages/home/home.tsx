@@ -8,6 +8,7 @@ import Resume from '../../components/basicinfo/basicinfo'
 function Home() {
   const [h_login, seth_login] = useState(false)
   const [h_reges, seth_reges] = useState(false)
+  const [h_expor, seth_expor] = useState(true)
 
   // 发布登录按钮点击状态
   const pubLo = () => {
@@ -20,6 +21,11 @@ function Home() {
     PubSub.publish('ifreges', h_reges)
   }
 
+  const pubEx = () => {
+    seth_expor(true)
+    PubSub.publish('ifexpor', h_expor)
+  }
+
   useEffect(() => {
     // pubLoRe()
   }, [])
@@ -29,7 +35,7 @@ function Home() {
       <div className={style.bg}>
 
         <div className={style.nav}>
-          <button className={style.dcbtn} onClick={pubRe}>导出</button>
+          <button className={style.dcbtn} onClick={pubEx}>导出</button>
           <button className={style.lgBtn} onClick={pubLo}>登录</button>
           <button className={style.rgBtn} onClick={pubRe}>注册</button>
         </div>

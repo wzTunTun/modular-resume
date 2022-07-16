@@ -32,7 +32,7 @@ function Basicinfo() {
     return (
 
         <div className={style.container} id='0' onClick={showedit} ref={basicinfo}>
-            <label htmlFor="name">姓名：</label>
+            <label htmlFor="name">姓名：李泽恺</label>
             <div id='bas1'/>
             <label htmlFor="tel">电话：</label>
             <div id='bas3'/>

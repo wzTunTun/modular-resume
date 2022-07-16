@@ -70,6 +70,12 @@ function Sider() {
             newediitems = data
             setediitems(newediitems)
         })
+        PubSub.subscribe('ifexpor', (msg, data: boolean) => {
+            if(data){
+              getpdf('tar', '1234')
+              console.log(1)  
+            } 
+        })
         document.addEventListener("drag", function (event) { }, false)
         document.addEventListener("dragstart", function (event: any) {
             event.dataTransfer.setData("text/plain", event.target.id)
@@ -156,7 +162,6 @@ function Sider() {
             </div>
             <div className={style.rightcon}>
                 <div className={!oc2 ? style.rightbox : `${style.rightbox} ${style.rightbox_close}`}>
-                    <button></button>
                     <div className={style.handler} onClick={() => setoc(!oc)}></div>
                     <div className={oc2 ? style.con : `${style.con} ${style.con_open}`}>
                         {/* <button onClick={download}></button> */}
